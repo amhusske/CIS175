@@ -13,6 +13,7 @@
 	<form action="editOrderServlet" method="post">
 		Drink: <input type="text" name="drink" value= "${orderToEdit.drink}">
 		Size: <input type="text" name="size" value= "${orderToEdit.size}">
+		Customer Name: <input type="text" name="customerName" value= "${orderToEdit.customer.customerName}">
 		<input type="hidden" name="id" value="${orderToEdit.id}">
 		<input type="submit" value="Save Edits">
 	</form>

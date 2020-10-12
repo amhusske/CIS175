@@ -1,10 +1,13 @@
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -19,20 +22,24 @@ public class Order {
 	private String drink;
 	@Column(name="SIZE")
 	private String size;
-	
-	
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="CUSTOMER_ID")
+	private Customer customer;
+
 	public Order() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public Order(String drink, String size) {
+	public Order(String drink, String size, Customer customer) {
 		super();
 		this.drink = drink;
 		this.size = size;
+		this.customer = customer;
 	}
 
+	
 
 	public int getId() {
 		return id;
@@ -53,6 +60,13 @@ public class Order {
 		this.drink = drink;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+	
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
 	public String getSize() {
 		return size;
@@ -67,4 +81,8 @@ public class Order {
 		return drink + ":" + size;
 		}
 	
+	@Override
+	public String toString() {
+		return "OrderDetails [id=" + id + ", drink= "	+ drink + " customer=" + customer + "]";
+	}
 }

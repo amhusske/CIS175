@@ -17,7 +17,7 @@
 		<tr>
 			<td><input type="radio" name="id" value="${currentorder.id}"></td>
 			<td>${currentorder.drink}</td><td>|| ${currentorder.size}</td>
-		</tr>
+			<td colspan="3">|| Customer:${currentorder.customer.customerName}</td>
 		</c:forEach>
 	</table>
 	<input type="submit" value="edit" name="orderAction">

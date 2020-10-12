@@ -3,6 +3,7 @@
 	<persistence-unit name="ConsoleCoffeeShopOrder" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.Order</class>
+		<class>model.Customer</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://cis175.cvepgvn9u4lu.us-east-1.rds.amazonaws.com/coffee_shop"/>
