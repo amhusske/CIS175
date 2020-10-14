@@ -7,7 +7,7 @@ import model.Flower;
 public class FlowerTester {
 
 	public static void main(String[] args) {
-		Flower Me = new Flower("Rose", "Red");
+		Flower Me = new Flower("Rose", "Summer", "Drained well", "full sun", "red");
 		
 		Me.toString();
 		

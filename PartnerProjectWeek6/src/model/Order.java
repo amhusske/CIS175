@@ -17,9 +17,6 @@ public class Order {
 	@Column(name="ORDER_ID")
 	private int orderID;
 	
-	@Column(name="ORDER_NAME")
-	private String orderName;
-	
 	@Column(name="ORDER_DATE")
 	private LocalDate orderDate;
 	
@@ -37,9 +34,8 @@ public class Order {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Order(String orderName, LocalDate orderDate, int customerID, int quantity, double price) {
+	public Order(LocalDate orderDate, int customerID, int quantity, double price) {
 		super();
-		this.orderName = orderName;
 		this.orderDate = orderDate;
 		this.customerID = customerID;
 		this.quantity = quantity;
@@ -47,10 +43,9 @@ public class Order {
 	}
 
 
-	public Order(int orderID, String orderName, LocalDate orderDate, int customerID, int quantity, double price) {
+	public Order(int orderID, LocalDate orderDate, int customerID, int quantity, double price) {
 		super();
 		this.orderID = orderID;
-		this.orderName = orderName;
 		this.orderDate = orderDate;
 		this.customerID = customerID;
 		this.quantity = quantity;
@@ -63,14 +58,6 @@ public class Order {
 
 	public void setOrderID(int orderID) {
 		this.orderID = orderID;
-	}
-	
-	public String getOrderName() {
-		return orderName;
-	}
-
-	public void setOrderName(String orderName) {
-		this.orderName = orderName;
 	}
 
 	public LocalDate getOrderDate() {
@@ -104,5 +91,7 @@ public class Order {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+
 	
 }

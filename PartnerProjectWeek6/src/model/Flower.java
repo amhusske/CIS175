@@ -1,24 +1,33 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+	import javax.persistence.Column;
+	import javax.persistence.Entity;
+	import javax.persistence.GeneratedValue;
+	import javax.persistence.GenerationType;
+	import javax.persistence.Id;
+	import javax.persistence.Table;
 
-@Entity
-@Table(name="flowers")
-public class Flower {
-	
+	@Entity
+	@Table(name="flowers")
+	public class Flower {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	private int id;
 	
+	
 	@Column(name="FLOWER_NAME")
 	private String flowerName;
 	
+	@Column(name="SEASONALITY")
+	private String seasonality;
+
+
+	@Column(name="SUN_NEEDS")
+	private String sunNeeds;
+	
+	@Column(name="SOIL_NEEDS")
+	private String soilNeeds;
 	
 	@Column(name="COLORS")
 	private String colors;
@@ -30,19 +39,27 @@ public class Flower {
 	}
 
 
-		public Flower(int id, String flowerName, String colors) {
+		public Flower(int id, String flowerName, String seasonality, String sunNeeds, String soilNeeds, String colors) {
 			super();
 			this.id = id;
 			this.flowerName = flowerName;
+			this.seasonality = seasonality;
+			this.sunNeeds = sunNeeds;
+			this.soilNeeds = soilNeeds;
 			this.colors = colors;
 		}
 
 
-		public Flower(String flowerName, String colors) {
+		public Flower(String flowerName, String seasonality, String sunNeeds, String soilNeeds, String colors) {
 			super();
 			this.flowerName = flowerName;
+			this.seasonality = seasonality;
+			this.sunNeeds = sunNeeds;
+			this.soilNeeds = soilNeeds;
 			this.colors = colors;
 		}
+
+
 
 		public int getId() {
 			return id;
@@ -63,6 +80,37 @@ public class Flower {
 			this.flowerName = flowerName;
 		}
 
+
+		public String getSeasonality() {
+			return seasonality;
+		}
+
+
+		public void setSeasonality(String seasonality) {
+			this.seasonality = seasonality;
+		}
+
+
+		public String getSunNeeds() {
+			return sunNeeds;
+		}
+
+
+		public void setSunNeeds(String sunNeeds) {
+			this.sunNeeds = sunNeeds;
+		}
+
+
+		public String getSoilNeeds() {
+			return soilNeeds;
+		}
+
+
+		public void setSoilNeeds(String soilNeeds) {
+			this.soilNeeds = soilNeeds;
+		}
+
+
 		public String getColors() {
 			return colors;
 		}
@@ -75,8 +123,9 @@ public class Flower {
 
 		@Override
 		public String toString() {
-			return "Flower [flowerName=" + flowerName + ", colors=" + colors + "]";
+			return " Flower [id=" + id + ", flowerName=" + flowerName + "]";
 		}
+
 	}
 
 
