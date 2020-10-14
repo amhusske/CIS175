@@ -58,7 +58,7 @@ public class StartOrder {
 			System.out.print("Which ID to edit: ");
 			int idToEdit = in.nextInt();
 
-			Order toEdit = oh.searchForItemById(idToEdit);
+			Order toEdit = oh.searchForOrderById(idToEdit);
 			System.out.println("Retrieved " + toEdit.getDrink() + " from " + toEdit.getSize());
 			System.out.println("1 : Update Drink");
 			System.out.println("2 : Update Size");

@@ -8,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Customer;
-import model.Order;
 
 /**
- * Servlet implementation class editOrderServlet
+ * Servlet implementation class addCustomerServlet
  */
-@WebServlet("/editOrderServlet")
-public class EditOrderServlet extends HttpServlet {
+@WebServlet("/addCustomerServlet")
+public class addCustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditOrderServlet() {
+    public addCustomerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +29,7 @@ public class EditOrderServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -38,30 +37,12 @@ public class EditOrderServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		OrderHelper oh = new OrderHelper();
+		String name = request.getParameter("customerName");
+		
+		Customer newName = new Customer(name);
+		
 		CustomerHelper ch = new CustomerHelper();
-		
-		String drink = request.getParameter("drink");
-		String size = request.getParameter("size");
-		
-		
-		String customerName = request.getParameter("customerName");
-		Customer newCustomer = ch.findCustomer(customerName);
+		ch.insertCustomer(newName);
 
-		
-		Integer tempId = Integer.parseInt(request.getParameter("id"));
-		Order orderToUpdate = oh.searchForOrderById(tempId);
-		
-		
-		orderToUpdate.setDrink(drink);
-		orderToUpdate.setSize(size);
-		orderToUpdate.setCustomer(newCustomer);
-		
-		orderToUpdate.setCustomer(newCustomer);
-		
-		oh.updateItem(orderToUpdate);
-		
-		getServletContext().getRequestDispatcher("/viewAllOrdersServlet").forward(request, response);
-	}
-
-}
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+}}

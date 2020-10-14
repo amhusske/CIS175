@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Customer;
 import model.Order;
 
 /**
@@ -33,8 +34,10 @@ public class AddOrderServlet extends HttpServlet {
 
 		String drink = request.getParameter("drink");
 		String size = request.getParameter("size");
-		 
-		Order newOrder = new Order(drink, size);
+		String customerName = request.getParameter("customerName");
+		
+		Customer a = new Customer(customerName);
+		Order newOrder = new Order(drink, size, a);
 		OrderHelper oh = new OrderHelper();
 		oh.insertOrder(newOrder);
 		
